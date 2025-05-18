@@ -932,27 +932,29 @@ section,
 
 .hero .icon-boxes {
   padding-bottom: 60px;
-  width: 100%;
+  width: 80%;
   z-index: 4;
   justify-content: center;
   align-items: center;
   align-self: center;
   align-content: center;
+  justify-self: center;
 }
 
 .hero .icon-box {
   background: var(--surface-color);
-  padding: 60px 30px;
+  padding: 25px 20px;
   position: relative;
   overflow: hidden;
   z-index: 1;
   height: 100%;
-  width: 100%;
+  width: 90%;
   text-align: center;
   justify-content: center;
   align-items: center;
   align-self: center;
   align-content: center;
+  justify-self: center;
 
   background-color: var(--surface-color);
   box-shadow: 0px 5px 90px 0px rgba(0, 0, 0, 0.1);
@@ -988,7 +990,7 @@ section,
 
 @media (min-width: 1365px) {
   .hero .icon-box:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
     border-color: var(--accent-color);
   }
 
@@ -1016,13 +1018,13 @@ section,
 }
 
 .about .content p {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .about .content ul {
   list-style: none;
   padding: 0;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .about .content ul li {
@@ -1073,6 +1075,7 @@ section,
 .about .about-images {
   border-radius: 10px;
   height: 100%;
+  /* margin-right: 1px; */
 }
 
 .about .about-images img {
@@ -1135,7 +1138,7 @@ section,
 
 @media (min-width: 1365px) {
   .services .service-item:hover {
-    transform: translateY(-15px);
+    transform: translateY(-5px);
     border-color: var(--accent-color);
   }
 

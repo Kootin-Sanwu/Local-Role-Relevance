@@ -18,7 +18,7 @@ session_start();
 
 <body>
     <div class="otp-card">
-        <h1>OTP VERIFICATION</h1>
+        <h1>OTP Verification</h1>
         <p>A code has been sent to your email address</p>
 
         <!-- OTP Form -->
@@ -34,7 +34,10 @@ session_start();
                 <a href="http://localhost:8080/actions/resend_otp.php" id="resend">Resend</a>
             </p>
 
-            <button type="submit">VERIFY</button>
+            <!-- <button type="submit">VERIFY</button> -->
+            <button type="submit">
+              <i class="fas fa-paper-plane"></i>
+            </button>
         </form>
     </div>
 

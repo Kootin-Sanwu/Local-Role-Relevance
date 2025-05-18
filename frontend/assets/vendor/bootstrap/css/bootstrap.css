@@ -711,8 +711,13 @@ progress {
   height: auto;
 }
 
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
 .img-thumbnail {
-  padding: 0.25rem;
+  /* padding: 0.25rem; */
   background-color: var(--bs-body-bg);
   border: var(--bs-border-width) solid var(--bs-border-color);
   border-radius: var(--bs-border-radius);
@@ -1407,6 +1412,7 @@ progress {
   .col-lg-6 {
     flex: 0 0 auto;
     width: 50%;
+    height: 100%;
   }
   .col-lg-7 {
     flex: 0 0 auto;

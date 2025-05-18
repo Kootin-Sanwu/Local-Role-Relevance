@@ -11,11 +11,7 @@ include_once "../settings/connection.php";
 include_once "../functions/send_OTP.php";
 
 // Include the predict function
-include_once "../functions/predict.php"; 
-
-$frontend_url = getenv("FRONTEND_URL") ?: "http://localhost:3000";
-$backend_url = getenv("BACKEND_URL") ?: "http://localhost:8080";
-$mlapi_url = getenv("ML_API_URL") ?: "http://localhost:5000";
+include_once "../functions/predict.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -47,13 +43,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         try {
 
+            // echo "$pdo";
             $stmt = $pdo->prepare("SELECT OrganizationID, Password, Name FROM Organizations WHERE Email = :Email");
             $stmt->bindParam(":Email", $organizationEmail, PDO::PARAM_STR);
             $stmt->execute();
-    
-            if ($stmt->rowCount() === 1) {
+
+            if ($stmt->rowCount() >= 1) {
                 $row = $stmt->fetch();
-    
+
                 if (password_verify($password, $row['Password'])) {
                     $_SESSION['OrganizationID'] = $row['OrganizationID'];
                     $_SESSION['organization_email'] = $organizationEmail;
@@ -88,11 +85,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     // After login, call the Flask API
                     $headers = [
                         'Content-Type: application/json',
-                        'Organizationid: ' . $organizationID  
+                        'Organizationid: ' . $organizationID
                     ];
 
                     // $ch = curl_init('http://127.0.0.1:5000/get_scores_1');
-                    $ch = curl_init("$mlapi_url/get_scores_1");
+                    $ch = curl_init("http://localhost:5000/get_scores_1");
                     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
                     curl_setopt($ch, CURLOPT_POST, true);
@@ -106,26 +103,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     // Redirect to OTP verification
                     $message = "Successfully signed in. Kindly check your email for the OTP.";
-                    header("Location: $frontend_url/views/verify_otp.php?msg=" . urlencode($message));
+                    header("Location: http://localhost:3000/views/verify_otp.php?msg=" . urlencode($message));
                     exit();
                 } else {
 
-                    header("Location: $frontend_url/views/login.php?msg=" . urlencode('Invalid Email or Password.'));
+                    header("Location: http://localhost:3000/views/login.php?msg=" . urlencode('Invalid Email or Password.'));
                     exit();
                 }
             } else {
 
-                header("Location: $frontend_url/views/login.php?msg=" . urlencode('Invalid email or password.'));
+                header("Location: http://localhost:3000/views/login.php?msg=" . urlencode('Invalid email or password.'));
                 exit();
             }
         } catch (PDOException $e) {
 
-            header("Location: $frontend_url/views/login.php?msg=Database error: " . $e->getMessage());
+            header("Location: http://localhost:3000/views/login.php?msg=Database error: " . $e->getMessage());
             exit();
         }
     } else {
 
-        header("Location: $frontend_url/views/login.php?msg=" . urlencode(implode(" ", $errors)));
+        header("Location: http://localhost:3000/views/login.php?msg=" . urlencode(implode(" ", $errors)));
         exit();
     }
 } else if (isset($_GET['msg'])) {
@@ -135,13 +132,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($message === "signing_in") {
 
         $organizationName = urlencode($_SESSION['organization_name']);
-        header("Location: $frontend_url/views/metrics.php?organization_name=$organizationName");
+        header("Location: http://localhost:3000/views/metrics.php?organization_name=$organizationName");
     } else {
 
         echo "The message is: " . htmlspecialchars($message);
     }
-}
- else {
-    header("Location: $frontend_url/views/login.php?msg=" . urlencode('Invalid request method.'));
+} else {
+    header("Location: http://localhost:3000/views/login.php?msg=" . urlencode('Invalid request method.'));
     exit();
 };

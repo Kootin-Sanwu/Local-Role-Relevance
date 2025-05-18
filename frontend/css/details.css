@@ -1,0 +1,290 @@
+/* Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Century", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    min-height: 100vh;
+    padding: 0.15rem;
+}
+
+/* Card Styles */
+.job-card {
+    background: linear-gradient(to bottom, #923D41, #582728);
+    padding: 1rem;
+    box-shadow: 25px 30px 55px rgba(80, 80, 80, 0.7);
+    border-radius: 2px;
+    width: 100%;
+    max-width: 800px;
+    color: #ffffff;
+    text-align: center;
+    height: fit-content;
+    height: 100%;
+    overflow: hidden;
+    transition: height 0.6s ease-in-out;
+    transition: height 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.job-card h1 {
+    font-size: 1.8rem;
+    margin: 1rem 0;
+}
+
+.job-card p {
+    font-size: 1.2rem;
+}
+
+/* Form Styles */
+.job-form {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.job-card-inputs {
+    margin-top: 1.5rem;
+    transition: all 0.6s ease;
+}
+
+/* Input Styles */
+input {
+    width: 75%;
+    padding: 0.7rem;
+    margin-top: -0.6rem;
+    border-radius: 2px;
+    font-size: 1.1rem;
+    border: 1px solid transparent;
+    text-align: center;
+    font-family: "Century", sans-serif;
+    transition: box-shadow 0.3s ease-in-out, border 0.3s ease-in-out;
+    outline: none;
+}
+
+input:focus {
+    /* box-shadow: 0 0 95px rgb(255, 255, 255); */
+    border: -4.5px solid rgb(255, 255, 255);
+    
+}
+
+textarea {
+    width: 80%;
+    padding: 0.7rem;
+    margin-top: 1rem;
+    resize: vertical;
+    min-height: 45px;
+    max-height: 300px;
+    font-family: "Century", sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Job Entry Styles */
+.job-entry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    margin: 0.5rem 0;
+    height: auto;
+    position: relative;
+    transition: all 0.6s ease;
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-height 0.3s ease, margin 0.3s ease, padding 0.3s ease;
+    max-height: 160px;
+    font-size: 1.2rem;
+}
+
+.job-entry label {
+    display: block;
+    margin: 0.3rem 0;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* Button Styles */
+button {
+    background: linear-gradient(to right, #ffffff, #bebebe);
+    border: none;
+    padding: 20px 25px;
+    font-size: 16px;
+    color: #000;
+    /* border-radius: 2.5px; */
+    cursor: pointer;
+    margin-top: 1.2rem;
+    transition: all 0.3s ease;
+    font-family: "Century", sans-serif;
+}
+
+/* === Icon Buttons === */
+.icon-button {
+  background: none;
+  padding: 0.5rem;
+  color: white;
+  margin: 1rem auto;
+  transition: transform 0.3s ease;
+  vertical-align: middle; /* Added here instead of just on hover */
+  transform-origin: center; /* Added here instead of just on hover */
+  -webkit-font-smoothing: antialiased; /* Added here instead of just on hover */
+}
+
+.icon-button:hover {
+  transform: scale(1.4);
+  /* Removed vertical-align, transform-origin and font-smoothing from here */
+}
+
+.icon-button svg {
+    vertical-align: middle;
+    transform-origin: center;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* === Remove Button === */
+.remove-button {
+  background: transparent;
+  border: none;
+  padding: 0.25rem;
+  color: #ffffff;
+  position: absolute;
+  right: 0.5rem;
+  top: -20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  transform-origin: center;
+}
+
+.remove-button:hover {
+  transform: scale(1.4);
+}
+
+/* Submit Button Styles */
+button[type="submit"] {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 1rem auto 5px;
+    cursor: pointer;
+    display: block;
+    color: white;
+    font-size: 2.5rem; /* Increased size */
+    transition: transform 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    transform: scale(1.2);
+}
+
+/* Animation Styles */
+
+.job-entry.removing {
+    opacity: 0;
+    max-height: 0;
+    margin: -2.5px;
+    padding: 0;
+    /* transition: opacity 0.3s ease, transform 0.3s ease; */
+}
+
+.fade-out {
+  opacity: 0;
+  /* transform: translateY(-205px); */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.job-entry.adding {
+    animation: fadeIn 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        max-height: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        max-height: 200px; /* Adjust based on your maximum entry height */
+        transform: translateY(0);
+    }
+}
+
+/* Suggestions Styles */
+#job-title-suggestions {
+    border-top: none;
+    max-height: 160px;
+    overflow-y: auto;
+    position: absolute;
+    width: 100%;
+    background: linear-gradient(to bottom, #923D41, #582728);
+    z-index: 1000;
+    border-radius: 2px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+}
+
+.suggestion-item {
+    padding: 8px;
+    cursor: pointer;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.suggestion-item:hover {
+    background: linear-gradient(to bottom, #923D41, #582728);
+    transform: scale3d(1, 1, 1);
+    transition: transform 0.3s ease;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: transparent;
+    padding: 20px;
+    width: 80%;
+    max-width: 900px;
+    position: relative;
+    border-radius: 5px;
+    border: none;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+}
+
+iframe {
+    border: none;
+    width: 100%;
+    height: 500px;
+}
