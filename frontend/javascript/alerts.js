@@ -31,7 +31,9 @@ document.addEventListener('DOMContentLoaded', function () {
             "Organization name and at least one job title are required.": { title: "Error", icon: "error" },
             "No organization found in session. Please log in again.": { title: "Error", icon: "error" },
             "Please fill in all required fields.": { title: "Error", icon: "error" },
-            "Job roles submitted successfully.": { title: "Success", icon: "success" }
+            "Job roles submitted successfully.": { title: "Success", icon: "success" },
+            "Signed In successfully.": { title: "Success", icon: "success" },
+            "Sign Up or Sign In to continue.": { title: "Success", icon: "success" }
         };
 
         // Function to check if the message is a database error

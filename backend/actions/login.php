@@ -56,9 +56,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $_SESSION['organization_email'] = $organizationEmail;
                     $_SESSION['organization_name'] = $row['Name'];
 
-                    setcookie("organization_name", $_SESSION['organization_name'], time() + 3600, "/", "localhost", false, true);
-                    setcookie("organization_id", $_SESSION['OrganizationID'], time() + 3600, "/", "localhost", false, true);
-                    setcookie("organization_email", $_SESSION['organization_email'], time() + 3600, "/", "localhost", false, true);
+                    setcookie("organization_name", $_SESSION['organization_name'], time() + 86400, "/", "localhost", false, true);
+                    setcookie("organization_id", $_SESSION['OrganizationID'], time() + 86400, "/", "localhost", false, true);
+                    setcookie("organization_email", $_SESSION['organization_email'], time() + 86400, "/", "localhost", false, true);
 
                     $organizationID = $_SESSION["OrganizationID"];
 
@@ -132,7 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($message === "signing_in") {
 
         $organizationName = urlencode($_SESSION['organization_name']);
-        header("Location: http://localhost:3000/views/metrics.php?organization_name=$organizationName");
+        header("Location: http://localhost:3000/views/org-metrics.php?organization_name=$organizationName");
     } else {
 
         echo "The message is: " . htmlspecialchars($message);

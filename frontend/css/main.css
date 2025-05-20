@@ -11,59 +11,17 @@
 # Help: https://bootstrapmade.com/color-system/
 --------------------------------------------------------------*/
 /* Fonts */
-/* :root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Raleway",  sans-serif;
-  --nav-font: "Poppins",  sans-serif;
-} */
-
-/* :root {
-  --default-font: "Inter", sans-serif;
-  --heading-font: "Montserrat", sans-serif;
-  --nav-font: "Open Sans", sans-serif;
-} */
-
 :root {
   --default-font: "Century", sans-serif;
   --heading-font: "Playfair Display", serif;
   --nav-font: "Century", sans-serif;
 }
 
-/* :root {
-  --default-font: "Muli", sans-serif;
-  --heading-font: "Bebas Neue", cursive;
-  --nav-font: "Josefin Sans", sans-serif;
-} */
-
-/* :root {
-  --default-font: "Georgia", serif;
-  --heading-font: "Merriweather", serif;
-  --nav-font: "Roboto Slab", serif;
-} */
-
-/* :root {
-  --default-font: "Source Sans Pro", sans-serif;
-  --heading-font: "Oswald", sans-serif;
-  --nav-font: "Quicksand", sans-serif;
-} */
-
-/* :root {
-  --default-font: "Garamond", serif;
-  --heading-font: "Baskerville", serif;
-  --nav-font: "Crimson Text", serif;
-} */
-
-/* :root {
-  --default-font: "Cabin", sans-serif;
-  --heading-font: "Pacifico", cursive;
-  --nav-font: "Fira Sans", sans-serif;
-} */
-
-/* :root {
-  --default-font: "Ubuntu", sans-serif;
-  --heading-font: "Raleway", sans-serif;
-  --nav-font: "PT Sans", sans-serif;
-} */
+:root {
+  --default-font: "Bitter", serif;
+  --heading-font: "Bitter", serif;
+  --nav-font: "Bitter", serif;
+}
 
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
@@ -74,7 +32,7 @@
   --accent-color: #923d41; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
-  --multipurpose-color-1: rgb(0, 123, 255);
+  --multipurpose-color-1: rgb(0, 69, 142);
   --multipurpose-color-2: rgb(16, 85, 0);
   --multipurpose-color-3: rgb(95, 51, 140);
   --multipurpose-color-4: rgb(80, 48, 0);
@@ -217,7 +175,7 @@ h6 {
 .header .logo h1 {
   font-size: 35px;
   margin: 0;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--heading-color);
 }
 
@@ -862,9 +820,10 @@ section,
 }
 
 .hero h2 {
-  font-size: 48px;
-  font-weight: 700;
+  font-size: 40px;
+  font-weight: 500;
   margin-bottom: 20px;
+  font-family: 'Bitter', serif;
 }
 
 .hero h2 .accent {
@@ -875,6 +834,7 @@ section,
   color: color-mix(in srgb, var(--default-color), transparent 40%);
   font-weight: 400;
   margin-bottom: 30px;
+  font-family: 'Bitter', serif;
 }
 
 .hero .btn-get-started {
@@ -932,7 +892,7 @@ section,
 
 .hero .icon-boxes {
   padding-bottom: 60px;
-  width: 80%;
+  width: 90%;
   z-index: 4;
   justify-content: center;
   align-items: center;
@@ -964,13 +924,14 @@ section,
 }
 
 .hero .icon-box .title {
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 15px;
   font-size: 24px;
+  /* color: var(--default-color); */
 }
 
 .hero .icon-box .title a {
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: color-mix(in srgb, var(--default-color), transparent 0%);
   transition: 0.3s;
 }
 
@@ -1014,7 +975,7 @@ section,
 
 .about .content h3 {
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .about .content p {
@@ -1124,7 +1085,7 @@ section,
 }
 
 .services .service-item h3 {
-  font-weight: 700;
+  font-weight: 600;
   margin: 10px 0 15px 0;
   font-size: 25px;
   transition: ease-in-out 0.3s;
@@ -1150,7 +1111,7 @@ section,
 /*--------------------------------------------------------------
 # Features Section
 --------------------------------------------------------------*/
-/* .features .feature-box {
+.features .feature-box {
   background-color: var(--surface-color);
   padding: 24px 20px;
   box-shadow: 0px 0 30px rgba(0, 0, 0, 0.1);
@@ -1178,7 +1139,7 @@ section,
 .features .feature-box:hover i {
   background: var(--accent-color);
   color: var(--contrast-color);
-} */
+}
 
 /*--------------------------------------------------------------
 # Features Section
@@ -1774,7 +1735,6 @@ section,
 }
 
 .btn-add-role-icon-1:active {
-  /* When clicked, the button slightly shrinks and moves down to create a pressed effect */
   transform: scale(0.80);
 }
 
@@ -1814,7 +1774,6 @@ section,
 }
 
 .btn-remove-role-icon-1:active {
-  /* When clicked, the button slightly shrinks and moves down to create a pressed effect */
   transform: scale(0.80);
 }
 
@@ -1911,7 +1870,7 @@ section,
   right: 15px;
   width: 50px;
   height: 50px;
-  background: radial-gradient(circle at 30% 30%, #87c1ff, #003b7a);
+  background: radial-gradient(circle at 30% 30%, #87c1ff, #003268);
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -1951,7 +1910,7 @@ section,
   left: 15px;
   width: 50px;
   height: 50px;
-  background: radial-gradient(circle at 30% 30%, #87c1ff, #003b7a);
+  background: radial-gradient(circle at 30% 30%, #87c1ff, #003268);
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -1991,7 +1950,7 @@ section,
   bottom: 15px;
   width: 50px;
   height: 50px;
-  background: radial-gradient(circle at 30% 30%, #87c1ff, #003b7a);
+  background: radial-gradient(circle at 30% 30%, #87c1ff, #003268);
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -2033,7 +1992,7 @@ section,
   bottom: 15px;
   width: 50px;
   height: 50px;
-  background: radial-gradient(circle at 30% 30%, #87c1ff, #003b7a);
+  background: radial-gradient(circle at 30% 30%, #87c1ff, #003268);
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -2070,12 +2029,6 @@ section,
 .btn-add-description-2:active {
   transform: scale(0.80);
 }
-
-
-
-
-
-
 
 .btn-add-role-icon-3 {
   position: absolute;
@@ -2243,22 +2196,6 @@ section,
   transform: scale(0.80);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .btn-add-role-icon-4 {
   position: absolute;
   top: 15px;
@@ -2425,22 +2362,6 @@ section,
   transform: scale(0.80);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .btn-add-role-icon-5 {
   position: absolute;
   top: 15px;
@@ -2606,22 +2527,6 @@ section,
 .btn-add-description-5:active {
   transform: scale(0.80);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .btn-add-role-icon-6 {
   position: absolute;

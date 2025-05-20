@@ -343,10 +343,10 @@ async function renderLineChart_1() {
       datasets: [{
         label: 'Role Relevance Score (%)',
         data: values,
-        borderColor: 'rgb(0, 123, 255)',
+        borderColor: 'rgb(0, 69, 142)',
         backgroundColor: 'rgba(0, 123, 255, 0.2)',
         borderWidth: 2,
-        pointBackgroundColor: 'rgb(0, 123, 255)',
+        pointBackgroundColor: 'rgb(0, 69, 142)',
         pointRadius: 5,
         fill: true,
         tension: 0.4,

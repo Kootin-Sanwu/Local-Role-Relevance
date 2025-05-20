@@ -1,0 +1,24 @@
+/* Reduce top padding for the hero section */
+.hero.section {
+  padding-top: 90px; /* reduced from something like 80px */
+  padding-bottom: 30px;
+}
+
+/* Reduce margin below the welcome container */
+.welcome-container {
+  margin-bottom: -30px; /* reduced spacing */
+}
+
+/* Optional: tighten spacing inside welcome container */
+#welcome-text {
+  justify-content: center;
+  justify-self: center;
+  margin-top: 0px;
+  margin-bottom: 5px; /* controls spacing between WELCOME and subtext */
+}
+
+.subtext {
+  justify-content: center;
+  justify-self: center;
+  margin-top: 0; /* ensure no extra top spacing */
+}

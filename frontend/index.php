@@ -18,6 +18,7 @@
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -52,7 +53,7 @@
         <ul>
           <li><a href="#hero" class="active">Home</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="views/login.php">Metrics</a></li>
+          <li><a href="http://localhost:8080/actions/auth-redirect.php">Metrics</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#features">Features</a></li>
           <li><a href="#pricing">Pricing</a></li>
@@ -111,7 +112,7 @@
             <div class="col-xl-3 col-md-6">
               <div class="icon-box position-relative">
                 <div class="icon"><i class="bi bi-gem"></i></div>
-                <h4 class="title"><a href="" class="stretched-link">Generic</a></h4>
+                <h4 class="title"><a href="views/industry-options.php" class="stretched-link">Generic</a></h4>
               </div>
             </div>
             <!--End Icon Box -->
@@ -155,17 +156,7 @@
               <div class="col-lg-6">
                 <img src="img/IMG-6.jpg" class="img-fluid" alt="">
               </div>
-                <!-- <div class="col-lg-6">
-                  <div class="row gy-4">
-                    <div class="col-lg-12">
-                      <img src="img/group-african-people-9.jpg" class="img-fluid" alt="">
-                    </div>
-                    <div class="col-lg-12">
-                      <img src="img/group-african-people-10.jpg" class="img-fluid" alt="">
-                    </div>
-                  </div>
-                </div> -->
-                <div class="col-lg-6">
+              <div class="col-lg-6">
                 <img src="img/IMG-3.JPG" class="img-fluid" alt="">
               </div>
             </div>

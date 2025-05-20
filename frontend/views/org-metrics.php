@@ -3,6 +3,7 @@ session_start();
 
 $organizationName = isset($_COOKIE['organization_name']) ? htmlspecialchars($_COOKIE['organization_name']) : null;
 $organizationID = isset($_COOKIE['organization_id']) ? htmlspecialchars($_COOKIE['organization_id']) : null;
+$organizationEmail = isset($_COOKIE['organization_email']) ? htmlspecialchars($_COOKIE['organization_email']) : null;
 
 if (!$organizationName) {
     header("Location: login.php");
@@ -33,6 +34,7 @@ $organizationName = isset($_GET['organization_name'])
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -40,8 +42,8 @@ $organizationName = isset($_GET['organization_name'])
   <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  <link href="../css/main.css" rel="stylesheet">
   <link rel="stylesheet" href="../css/metrics.css">
+  <link href="../css/main.css" rel="stylesheet">
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/modal.css">
 
@@ -54,7 +56,7 @@ $organizationName = isset($_GET['organization_name'])
 
       <a href="../views/metrics.php" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="../img/logo.png" alt="">
+        <!-- <img src="../favicon_io/apple-touch-icon.png" alt=""> -->
         <h1 class="sitename"><span>Job</span> Role Evaluation</h1>
       </a>
 
@@ -90,56 +92,72 @@ $organizationName = isset($_GET['organization_name'])
 
     </div>
   </header>
-  
+
   <main class="main">
 
-    <section id="metrics" class="features section light-background">
+    <!-- Hero Section -->
+    <section id="hero" class="hero section light-background" data-aos="fade-up" data-aos-delay="100">
 
-      <div class="welcome-container position-relative">
-
-        <h1 id="welcome-text">WELCOME</h1>
-        <p class="subtext">EXPLORE INSIGHTFUL METRICS AND MAKE DATA-DRIVEN DECISIONS.</p>
-        <div class="buttons-container">
-
-          <div class="metric-button-wrapper">
-            <button class="metric-button" onclick="scrollToSection('performance')">PERFORMANCE</button>
-            <div class="metric-button-bar-1"></div>
+      <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-5">
+          <div class="welcome-container">
+            <h2 id="welcome-text">WELCOME</h2>
+            <p class="subtext">EXPLORE INSIGHTFUL METRICS AND MAKE DATA-DRIVEN DECISIONS.</p>
           </div>
-          
-          <div class="metric-button-wrapper">
-            <button class="metric-button" onclick="scrollToSection('finance')">COST</button>
-            <div class="metric-button-bar-2"></div>
-          </div>
-          
-          <div class="metric-button-wrapper">
-            <button class="metric-button" onclick="scrollToSection('revenue')">REVENUE</button>
-            <div class="metric-button-bar-3"></div>
-          </div>
-          
-          <div class="metric-button-wrapper">
-            <button class="metric-button" onclick="scrollToSection('market')">MARKET<br>TRENDS</button>
-            <div class="metric-button-bar-4"></div>
-          </div>
-          
-          <div class="metric-button-wrapper">
-            <button class="metric-button" onclick="scrollToSection('susceptible')">TECHNOLOGICAL SUSCEPTIBILITY</button>
-            <div class="metric-button-bar-5"></div>
-          </div>
-          
-          <div class="metric-button-wrapper">
-            <button class="metric-button" onclick="scrollToSection('dependence')">INTERDEPARTMENTAL DEPENDENCY</button>
-            <div class="metric-button-bar-6"></div>
-          </div>
-
         </div>
-
       </div>
 
-  </section>
+      <div class="icon-boxes position-relative" data-aos="fade-up" data-aos-delay="100">
+        <div class="container position-relative">
+          <div class="row gy-4 mt-5">
+            
+            <div class="col-xl-4 col-md-6">
+              <div class="icon-box position-relative">
+                <div class="icon"><i class="bi bi-speedometer2"></i></div>
+                <h4 class="title"><a href="#performance" class="stretched-link">Performance</a></h4>
+              </div>
+            </div>
 
+            
+            <div class="col-xl-4 col-md-6">
+              <div class="icon-box position-relative">
+                <div class="icon"><i class="bi bi-cash-stack"></i></div>
+                <h4 class="title"><a href="#finance" class="stretched-link">Cost</a></h4>
+              </div>
+            </div><!--End Icon Box -->
+            
+            <div class="col-xl-4 col-md-6">
+              <div class="icon-box position-relative">
+                <div class="icon"><i class="bi bi-graph-up-arrow"></i></div>
+                <h4 class="title"><a href="#revenue" class="stretched-link">Revenue</a></h4>
+              </div>
+            </div><!--End Icon Box -->
+            
+            <div class="col-xl-4 col-md-6">
+              <div class="icon-box position-relative">
+                <div class="icon"><i class="bi bi-bar-chart-line"></i></div>
+                <h4 class="title"><a href="#market" class="stretched-link">Trends</a></h4>
+              </div>
+            </div><!--End Icon Box -->
+            
+            <div class="col-xl-4 col-md-6">
+              <div class="icon-box position-relative">
+                <div class="icon"><i class="bi bi-shield-exclamation"></i></div>
+                <h4 class="title"><a href="#susceptible" class="stretched-link">Susceptibility</a></h4>
+              </div>
+            </div><!--End Icon Box -->
+            
+            <div class="col-xl-4 col-md-6">
+              <div class="icon-box position-relative">
+                <div class="icon"><i class="bi bi-diagram-3"></i></div>
+                <h4 class="title"><a href="#dependence" class="stretched-link">Dependency</a></h4>
+              </div>
+            </div><!--End Icon Box -->
+          </div>
+        </div>
+      </div>
 
-
-
+    </section><!-- /Hero Section -->
 
     <!-- About Section -->
     <section id="about" class="about section">
@@ -171,16 +189,6 @@ $organizationName = isset($_GET['organization_name'])
               <div class="col-lg-6">
                 <!-- <img src="../img/transparent-2.png" class="img-fluid" alt=""> -->
               </div>
-              <!-- <div class="col-lg-6">
-                <div class="row gy-4">
-                  <div class="col-lg-12">
-                    <img src="../img/about-company-2.jpg" class="img-fluid" alt="">
-                  </div>
-                  <div class="col-lg-12">
-                    <img src="../img/about-company-3.jpg" class="img-fluid" alt="">
-                  </div>
-                </div>
-              </div> -->
               <div class="col-lg-6">
                 <img src="../img/IMG-5.jpg" class="img-fluid" alt="">
               </div>
@@ -196,8 +204,8 @@ $organizationName = isset($_GET['organization_name'])
     <section id="performance" class="performance section light-background">
       <div class="metric-container section-title-1" data-aos="fade-up">
         <div class="info">
-          <span><h2>PERFORMANCE</h2></span><br>
-          <span>Statisitcs on </span> <br><span class="description-title-1">Performance per Role</span>
+          <h2>PERFORMANCE</h2><br><br>
+          <h3 class="description-title-1">Performance <br><br>per Role</h3>
         </div>
       </div>
 
@@ -228,8 +236,8 @@ $organizationName = isset($_GET['organization_name'])
           <i class="bi bi-arrow-repeat reload-icon"></i>
         </button>
         
-        <h2><?php echo $organizationName; ?></h2>
-        <h3>Market Demand Statistics</h3>
+        <h3><?php echo $organizationName; ?></h3>
+        <h5>A 90% Accurate Estimate of Each Role's Impact on <?php echo $organizationName; ?>'s Performance</h5>
         
         <canvas id="Chart1" class="chart-canvas"></canvas>
       </div>
@@ -271,8 +279,8 @@ $organizationName = isset($_GET['organization_name'])
 
       <div class="metric-container section-title-2" data-aos="fade-up">
         <div class="info">
-          <span><h2>COST</h2></span><br>
-          <span>Statisitcs on </span> <br><span class="description-title-1">Cost per Role</span>
+          <h2>COST</h2><br><br>
+          <h3 class="description-title-1">Cost Reduction <br>per Role</h3>
         </div>
       </div>
 
@@ -304,7 +312,7 @@ $organizationName = isset($_GET['organization_name'])
         </button>
         
         <h2><?php echo $organizationName; ?></h2>
-        <h3>Market Demand Statistics</h3>
+        <h5>A 90% Accurate Estimate of Each Role's Impact on <?php echo $organizationName; ?>'s Performance</h5>
         
         <canvas id="Chart2" class="chart-canvas"></canvas>
       </div>
@@ -346,8 +354,8 @@ $organizationName = isset($_GET['organization_name'])
 
       <div class="metric-container section-title-3" data-aos="fade-up">
         <div class="info">
-          <span><h2>REVENUE</h2></span><br>
-          <span>Statisitcs on </span> <br><span class="description-title-1">Revenue per Role</span>
+          <h2>REVENUE</h2><br><br>
+          <h3 class="description-title-1">Revenue Generation <br>per Role</h3>
         </div>
       </div>
 
@@ -379,7 +387,7 @@ $organizationName = isset($_GET['organization_name'])
         </button>
         
         <h2><?php echo $organizationName; ?></h2>
-        <h3>Market Demand Statistics</h3>
+        <h5>A 90% Accurate Estimate of Each Role's Impact on <?php echo $organizationName; ?>'s Performance</h5>
         
         <canvas id="Chart3" class="chart-canvas"></canvas>
       </div>
@@ -419,8 +427,8 @@ $organizationName = isset($_GET['organization_name'])
     <section id="market" class="market section light-background">
       <div class="metric-container section-title-4" data-aos="fade-up">
         <div class="info">
-          <span><h2>DEMAND</h2></span><br>
-          <span>Statisitcs on </span> <br><span class="description-title-1">Demand per Role</span>
+          <h2>Market Trends</h2><br><br>
+          <h3 class="description-title-1">Market Trends for Each Role</h3>
         </div>
       </div>
 
@@ -452,7 +460,7 @@ $organizationName = isset($_GET['organization_name'])
         </button>
         
         <h2><?php echo $organizationName; ?></h2>
-        <h3>Market Demand Statistics</h3>
+        <h5>A 90% Accurate Estimate of Each Role's Impact on <?php echo $organizationName; ?>'s Performance</h5>
         
         <canvas id="Chart4" class="chart-canvas"></canvas>
       </div>
@@ -494,9 +502,8 @@ $organizationName = isset($_GET['organization_name'])
 
       <div class="metric-container section-title-5" data-aos="fade-up">
         <div class="info">
-          <span><h2>SUSCEPTIBILITY</h2></span><br>
-          <span>Statisitcs on </span> <br><span class="description-title-1">Technological Susceptibility</span> <br> 
-          <span>Per Role</span>
+          <h2>SUSCEPTIBILITY</h2><br><br>
+          <h3 class="description-title-1">Susceptibilty <br>per Role</h3>
         </div>
       </div>
 
@@ -528,7 +535,7 @@ $organizationName = isset($_GET['organization_name'])
         </button>
         
         <h2><?php echo $organizationName; ?></h2>
-        <h3>Market Demand Statistics</h3>
+        <h5>A 90% Accurate Estimate of Each Role's Impact on <?php echo $organizationName; ?>'s Performance</h5>
         
         <canvas id="Chart5" class="chart-canvas"></canvas>
       </div>
@@ -569,10 +576,8 @@ $organizationName = isset($_GET['organization_name'])
 
       <div class="metric-container section-title-6" data-aos="fade-up">
         <div class="info">
-          <span><h2>INTER-DEPENDENCE</h2></span> <br>
-          <span>Statisitcs on </span> <br> 
-          <span class="description-title-1">Interdepartmental Dependence</span> <br> 
-          <span>Per Role</span>
+          <h2>INTER-DEPENDENCE</h2><br><br>
+          <h3 class="description-title-1">Inter-departmental dependency <br>per Role</h3>
         </div>
       </div>
 
@@ -604,7 +609,7 @@ $organizationName = isset($_GET['organization_name'])
         </button>
         
         <h2><?php echo $organizationName; ?></h2>
-        <h3>Market Demand Statistics</h3>
+        <h5>A 90% Accurate Estimate of Each Role's Impact on <?php echo $organizationName; ?>'s Performance</h5>
         
         <canvas id="Chart6" class="chart-canvas"></canvas>
       </div>
